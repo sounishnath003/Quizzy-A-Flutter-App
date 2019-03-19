@@ -105,8 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return new ListTile(
     leading: new Icon(Icons.info, color: Colors.black87
         ,),
-    );
-    },
+    );    },
     ),),
     ),
       ],
