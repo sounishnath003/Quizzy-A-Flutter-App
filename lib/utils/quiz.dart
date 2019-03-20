@@ -10,12 +10,24 @@ import './question.dart';
   }
 
   Future<List<Question>> get questions async => _questions;
-  Future<int> get length async => _questions.length;
+  int get length => _questions.length;
   Future<int> get questionNumber async => _currentQuestionIndex+1;
   Future<int> get score async => _score;
 
   Future<Question> get nextQuestion async {
-    
+    _currentQuestionIndex++;
+    if (_currentQuestionIndex >= length){
+      return null;
+    }
+    else {
+      return _questions[_currentQuestionIndex];
+    }
+  }
+
+  void answer(bool isCorrect){
+    if(isCorrect){
+      _score++;
+    }
   }
 
 }
