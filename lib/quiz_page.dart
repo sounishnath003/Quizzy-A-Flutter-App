@@ -18,22 +18,8 @@ class _QuizPageState extends State<QuizPage> {
       children: <Widget>[
         new Column(
           children: <Widget>[
-            AnswerButton(),
-            new Expanded(
-                child: new Material(
-                color: Colors.redAccent,
-                child: new InkWell(
-                  onTap: () => {
-                    debugPrint("You answered True"),
-                  },
-                  child: new Center(
-                    child: new Container(
-                      child: new Text("True"),
-                    ),
-                  ),
-                ),
-              ),
-            )
+            new AnswerButton(true),
+            new AnswerButton(false),
           ],
         ),
       ],
