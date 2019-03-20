@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nomnom/quiz_page.dart';
 
 class LandingPage extends StatelessWidget {
 
@@ -7,9 +8,11 @@ class LandingPage extends StatelessWidget {
     return new Material(
       color: Colors.greenAccent,
       child: new InkWell(
-        onTap: () {
-          debugPrint("We tapped the page");
-        },
+        onTap: () => Navigator.of(context).push(
+          new MaterialPageRoute(
+            builder: (BuildContext context) => new QuizPage()
+          ),
+          ),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
