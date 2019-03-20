@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class RightWrongOverlay extends StatefulWidget {
 
@@ -9,7 +10,27 @@ class RightWrongOverlay extends StatefulWidget {
   _RightWrongOverlayState createState() => _RightWrongOverlayState();
 }
 
-class _RightWrongOverlayState extends State<RightWrongOverlay> {
+class _RightWrongOverlayState extends State<RightWrongOverlay> with SingleTickerProviderStateMixin {
+
+  Animation<double> _iconAnimation;
+  AnimationController _iconAnimationController ;
+
+  void initState() {
+    super.initState();
+    _iconAnimationController = new AnimationController(
+      duration: new Duration(
+        seconds: 2,
+      ),
+      vsync: this
+    );
+
+    _iconAnimation = new CurvedAnimation(
+      parent: _iconAnimationController,
+      curve: Curves.elasticOut,
+    );
+    _iconAnimation.addListener(() => this.setState(() {}));
+    _iconAnimationController.forward();
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +49,18 @@ class _RightWrongOverlayState extends State<RightWrongOverlay> {
                   colors: [Colors.white, Colors.white]
                 )
               ),
-              child: new Icon(widget._isCorrect == true ?  Icons.done : Icons.clear,
-              size: 66.0,
+              child: new Transform.rotate(
+                child : new Icon(  widget._isCorrect == true ?  Icons.done : Icons.clear,
+              size: _iconAnimation.value * 66.0,
               color: Colors.black,
               ),
+              angle: _iconAnimation.value * 2 * pi,
+              )
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                bottom: 18.0,
+                ),
             ),
             new Text(widget._isCorrect == true ?  "YOU'RE CORRECT " : "YOU'RE WRONG",
             style: new TextStyle(
