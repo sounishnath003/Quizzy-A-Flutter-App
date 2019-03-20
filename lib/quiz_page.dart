@@ -3,6 +3,7 @@ import './utils/question.dart';
 import './utils/quiz.dart';
 import './UI/answer_button.dart';
 import './UI/question_text.dart';
+import './UI/answer_right_wrong_overlay.dart';
 
 class QuizPage extends StatefulWidget {
   final Widget child;
