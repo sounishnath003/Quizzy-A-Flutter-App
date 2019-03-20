@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './utils/question.dart';
 import './utils/quiz.dart';
 import './UI/answer_button.dart';
+import './UI/question_text.dart';
 
 class QuizPage extends StatefulWidget {
   final Widget child;
@@ -19,9 +20,7 @@ class _QuizPageState extends State<QuizPage> {
         new Column(
           children: <Widget>[
             new AnswerButton(true, () => print("You answered True")),
-            new Material(
-              
-            ),
+            new QuestionText(),
             new AnswerButton(false, () => print("You answered False")),
           ],
         ),
