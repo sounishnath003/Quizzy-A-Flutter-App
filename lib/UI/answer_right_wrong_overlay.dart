@@ -4,8 +4,9 @@ import 'dart:math';
 class RightWrongOverlay extends StatefulWidget {
 
   final bool _isCorrect ;
+  final VoidCallback() _onTap ;
 
-  RightWrongOverlay(this._isCorrect);
+  RightWrongOverlay(this._isCorrect, this._onTap);
 
   _RightWrongOverlayState createState() => _RightWrongOverlayState();
 }

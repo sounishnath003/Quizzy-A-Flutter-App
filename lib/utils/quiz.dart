@@ -9,12 +9,12 @@ import './question.dart';
     _questions.shuffle();
   }
 
-  Future<List<Question>> get questions async => _questions;
+  List get questions => _questions;
   int get length => _questions.length;
-  Future<int> get questionNumber async => _currentQuestionIndex+1;
-  Future<int> get score async => _score;
+  int get questionNumber => _currentQuestionIndex+1;
+  int get score => _score;
 
-  Future<Question> get nextQuestion async {
+  Question get nextQuestion {
     _currentQuestionIndex++;
     if (_currentQuestionIndex >= length){
       return null;
