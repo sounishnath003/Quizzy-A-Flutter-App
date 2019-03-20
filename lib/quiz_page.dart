@@ -20,7 +20,7 @@ class _QuizPageState extends State<QuizPage> {
         new Column(
           children: <Widget>[
             new AnswerButton(true, () => print("You answered True")),
-            new QuestionText(),
+            new QuestionText("Flutter is Awesome", 1),
             new AnswerButton(false, () => print("You answered False")),
           ],
         ),
