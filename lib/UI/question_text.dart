@@ -9,7 +9,28 @@ class QuestionText extends StatefulWidget {
   _QuestionTextState createState() => _QuestionTextState();
 }
 
-class _QuestionTextState extends State<QuestionText> {
+class _QuestionTextState extends State<QuestionText> with TickerProviderStateMixin {
+
+  Animation<double> _fontSizeAnimation;
+  AnimationController _fontSizeAnimationController ;
+
+  void initState() {
+    super.initState();
+    _fontSizeAnimationController = new AnimationController(
+      duration: new Duration(
+        milliseconds: 1200,
+      ),
+      vsync: this
+      );
+      _fontSizeAnimation = new CurvedAnimation(
+        parent: _fontSizeAnimationController,
+        curve: Curves.bounceOut
+      );
+      _fontSizeAnimation.addListener(() => this.setState(() => {}
+      ));
+      _fontSizeAnimationController.forward() ;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Material(
@@ -19,7 +40,8 @@ class _QuestionTextState extends State<QuestionText> {
                 child: new Center(
                   child: new Text("Question No " + widget._questionNumber.toString() + " : " + widget._question,
                   style: new TextStyle(
-                    fontSize: 16.0,
+                    fontSize: _fontSizeAnimation.value*18,
+                    fontWeight: FontWeight.bold,
                   )
                   ),
                 ),
