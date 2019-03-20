@@ -24,7 +24,7 @@ class _QuizPageState extends State<QuizPage> {
     new Question("Bro do you even <code/>", true),
     new Question("Vue is a progessive javascript", true),
     new Question("This is an application", false),
-    new Question("Vs code is a Ide", false),
+    new Question("Vs code is a IDE", false),
     new Question("Rails is a programming language", false),
     new Question("Ruby is not a OOPs", false),
     new Question("C# is a language od DOT.net", false)
@@ -66,7 +66,17 @@ void handleAnswer(bool answer) {
             new AnswerButton(false, () => handleAnswer(false)),
           ],
         ),
-      overlayShouldBeVisible == true ?   new RightWrongOverlay(isCorrect) : new Container() ,
+      overlayShouldBeVisible == true ?   new RightWrongOverlay(
+        isCorrect,
+       () {
+         currentQuestion = quiz.nextQuestion;
+         this.setState(() {
+           overlayShouldBeVisible =false;
+           questionText =currentQuestion.question;
+           questionNumber = quiz.questionNumber;
+         });
+       }
+      ) : new Container() ,
       ],
     );
   }
