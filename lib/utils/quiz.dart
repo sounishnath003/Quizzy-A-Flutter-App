@@ -13,4 +13,9 @@ import './question.dart';
   Future<int> get length async => _questions.length;
   Future<int> get questionNumber async => _currentQuestionIndex+1;
   Future<int> get score async => _score;
+
+  Future<Question> get nextQuestion async {
+    
+  }
+
 }
