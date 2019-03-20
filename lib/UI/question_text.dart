@@ -18,7 +18,7 @@ class _QuestionTextState extends State<QuestionText> with TickerProviderStateMix
     super.initState();
     _fontSizeAnimationController = new AnimationController(
       duration: new Duration(
-        milliseconds: 1200,
+        milliseconds: 600,
       ),
       vsync: this
       );

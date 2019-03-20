@@ -17,6 +17,7 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return new Stack(
+      fit: StackFit.expand,
       children: <Widget>[
         new Column(
           children: <Widget>[
@@ -25,6 +26,7 @@ class _QuizPageState extends State<QuizPage> {
             new AnswerButton(false, () => print("You answered False")),
           ],
         ),
+        new RightWrongOverlay(false),
       ],
     );
   }
