@@ -33,6 +33,16 @@ class _RightWrongOverlayState extends State<RightWrongOverlay> with SingleTicker
     _iconAnimationController.forward();
     }
 
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _iconAnimationController.dispose();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Material(

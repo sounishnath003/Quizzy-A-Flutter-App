@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 class ScorePage extends StatelessWidget {
 
+final int score ;
+final int totalQuestions ;
+
+ScorePage(this.score, this.totalQuestions);
+
+
   @override
   Widget build(BuildContext context) {
     return new Material(
@@ -17,12 +23,20 @@ class ScorePage extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
           ),
-          new Text("3/10"),
-          new IconButton(
-            new Icon(Icons.arrow_right),
-            iconSize: 48.0,
+          new Padding(
+            padding: new EdgeInsets.only(top: 20.0),
+          ),
+          new Text(score.toString() +  "/" + totalQuestions.toString(),
+          style: new TextStyle(
             color: Colors.white,
-
+            fontSize: 99.0,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold
+          ),
+          ),
+          new IconButton(
+            icon: new Icon(Icons.play_arrow, color: Colors.white,),
+            iconSize: 150.0,
           ),
         ],
       ),
