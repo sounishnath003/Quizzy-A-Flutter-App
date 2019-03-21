@@ -10,6 +10,6 @@ Color scaffold_back_color = const Color.fromRGBO(250, 22 ,3, 1);
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: new ScorePage(5,10)
+    home: new LandingPage()
   ));
 }

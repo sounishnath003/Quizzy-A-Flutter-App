@@ -70,6 +70,15 @@ void handleAnswer(bool answer) {
       overlayShouldBeVisible == true ?   new RightWrongOverlay(
         isCorrect,
        () {
+
+         if (quiz.length == questionNumber){
+           Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(
+             builder: (BuildContext context) =>
+             new ScorePage(quiz.score, quiz.length)
+           ), (Route route) => route == null);
+           return ;
+         }
+
          currentQuestion = quiz.nextQuestion;
          this.setState(() {
            overlayShouldBeVisible =false;
